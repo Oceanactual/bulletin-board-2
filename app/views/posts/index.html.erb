@@ -124,6 +124,9 @@
           <a href="/posts/<%= a_post.id %>">
             Show details
           </a>
+              <div>
+                <%=User.where({:id => a_post.user_id}).first.email%>
+              </div>
         </td>
       </tr>
       <% end %>
