@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to "boards#index"
+  root to: "boards#index"
 
   # Routes for the Post resource:
 
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post("/modify_post/:path_id", { :controller => "posts", :action => "update" })
   
   # DELETE
-  get("/delete_post/:path_id", { :controller => "posts", :action => "destroy" })
+  get("/delete_post", { :controller => "posts", :action => "destroy" })
 
   #------------------------------
 

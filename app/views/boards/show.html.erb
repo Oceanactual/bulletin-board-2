@@ -58,7 +58,16 @@
 
   <% @active_posts.each do |a_post| %>
     <tr>
-      <td><%= a_post.title %></td>
+      <td><%= a_post.title %>
+      <%if a_post.user_id == current_user.id%>
+            <<a href="/delete_post" meethod = "post">Delete post
+              <input name = "the_board_id" value = <%=a_post.board_id%> style = "display:none;">
+              <input name = "the_post_id" value = <%=a_post.id%> style = "display:none;">
+            </a>
+          <%else%>
+            <p>nah dude</p>
+          <%end%>
+      </td>
       <td><%= a_post.body %></td>
       <td><%= a_post.created_at.strftime("%b %e, %Y") %></td>
       <td><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
